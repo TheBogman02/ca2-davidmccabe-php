@@ -5,7 +5,7 @@ $recruit_id = filter_input(INPUT_POST, 'recruiId', FILTER_VALIDATE_INT);
 $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 $name = filter_input(INPUT_POST, 'recruitName');
 $job = filter_input(INPUT_POST, 'job');
-$dateOfReg = filter_input(INPUT_POST, 'dateOfReg');
+$dateOfReg = filter_input(INPUT_POST, 'dateOfReg', FILTER_VALIDATE_INT);
 $bloodtype = filter_input(INPUT_POST, 'bloodType');
 
 // Validate inputs
@@ -57,8 +57,13 @@ SET categoryID = :category_id,
 recruitName = :recruitName,
 job = :job,
 dateOfReg = :dateOfReg,
+<<<<<<< HEAD
 image = :image,
 bloodType = : bloodType
+=======
+bloodType = :bloodType,
+image = :image
+>>>>>>> 6d2f07a2c2213a69bcb0b4b30da0aff8fe69b442
 WHERE recruitID = :recruit_id';
 $statement = $db->prepare($query);
 $statement->bindValue(':recruit_id', $recruit_id);
