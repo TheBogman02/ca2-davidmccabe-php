@@ -4,17 +4,11 @@
 $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 <<<<<<< HEAD
 $name = filter_input(INPUT_POST, 'name');
-$job = filter_input(INPUT_POST, 'job');
-$dateOfReg = filter_input(INPUT_POST, 'dateOfReg');
-$bloodType = filter_input(INPUT_POST,'bloodType');
-
-
-
-
-
+$price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
 
 // Validate inputs
 if ($category_id == null || $category_id == false ||
+<<<<<<< HEAD
     $name == null ) {
 =======
 $recruitName = filter_input(INPUT_POST, 'recruitName');
@@ -26,6 +20,9 @@ $bloodType = filter_input(INPUT_POST, 'bloodType');
 if ($category_id == null || $category_id == false ||
     $recruitName == null || $job == null || $dateOfReg == false  || $bloodType == false) {
 >>>>>>> 6d2f07a2c2213a69bcb0b4b30da0aff8fe69b442
+=======
+    $name == null || $price == null || $price == false ) {
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
     $error = "Invalid product data. Check all fields and try again.";
     include('error.php');
     exit();
@@ -82,12 +79,17 @@ if ($category_id == null || $category_id == false ||
     // Add the product to the database 
     $query = "INSERT INTO recruits
 <<<<<<< HEAD
+<<<<<<< HEAD
                  (categoryID, recruitName, job, dateOfReg, image, bloodType)
+=======
+                 (categoryID, name, price, image)
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
               VALUES
-                 (:category_id, :name, :job, :dateOfReg, :image, :bloodType)";
+                 (:category_id, :name, :price, :image)";
     $statement = $db->prepare($query);
     $statement->bindValue(':category_id', $category_id);
     $statement->bindValue(':name', $name);
+<<<<<<< HEAD
 =======
                  (categoryID, recruitName, job, dateOfReg, bloodType, image)
               VALUES
@@ -99,6 +101,9 @@ if ($category_id == null || $category_id == false ||
     $statement->bindValue(':job', $job);
     $statement->bindValue(':dateOfReg', $dateOfReg);
     $statement->bindValue(':bloodType', $bloodType);
+=======
+    $statement->bindValue(':price', $price);
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
     $statement->bindValue(':image', $image);
     $statement->execute();
     $statement->closeCursor();

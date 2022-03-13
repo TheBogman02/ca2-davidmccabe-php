@@ -21,10 +21,6 @@ SET time_zone = "+00:00";
 -- Database: `ca2`
 --
 
-DROP DATABASE IF EXISTS ukraine_signup;
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -34,6 +30,7 @@ DROP DATABASE IF EXISTS ukraine_signup;
 CREATE DATABASE IF NOT EXISTS ukraine_signup;
 USE ukraine_signup;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 CREATE DATABASE ukraine_signup;
 
@@ -52,6 +49,15 @@ DROP TABLE IF EXISTS `recruits`;
 CREATE TABLE `categories` (
   `categoryID` int(11) NOT NULL AUTO_INCREMENT,
 >>>>>>> 6d2f07a2c2213a69bcb0b4b30da0aff8fe69b442
+=======
+CREATE TABLE `categories` (
+  `categoryID` int(11) NOT NULL,
+  `categoryName` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `categories` (
+  `categoryID` int(11) NOT NULL,
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
   `categoryName` varchar(255) NOT NULL,
   `parentID` int(11), -- To detect if category is Main/Sub. How? "Null" if Main, "main category" id if child
   `emblem` varchar(50),
@@ -75,9 +81,21 @@ INSERT INTO `categories` (`categoryID`, `categoryName`, `parentID`, `emblem`) VA
 -- Table structure for table `recruits`
 --
 
+CREATE TABLE `records` (
+  `recordID` int(11) NOT NULL,
+  `categoryID` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `recruits` (
 <<<<<<< HEAD
+<<<<<<< HEAD
   `recruitID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+=======
+  `recruitID` int(11) NOT NULL,
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
   `categoryID` int(11) NOT NULL,
 =======
   `recruitID` int(11) NOT NULL primary key AUTO_INCREMENT,
@@ -93,21 +111,21 @@ CREATE TABLE `recruits` (
 
 <<<<<<< HEAD
 INSERT INTO `recruits` (`recruitID`, `categoryID`, `recruitName`, `job`, `dateOfReg`, `image`, `bloodType`) VALUES
-(0, 1, 'Olexiy Havrylyuk', 'Field Artillery Officer', '2022-01-01', NULL, "A"),
-(1, 3, 'Oleksandr Sobol', 'Combat Engineer', '2022-01-01', NULL, "B"),
-(2, 3, 'Sofron Sokolov', 'Combat Engineer', '2022-01-05', NULL, "O Positive"),
-(3, 2, 'Valery Zelenko', 'Soldeir', '2022-01-07', NULL, "O"),
-(4, 1, 'Nil Borisov', 'Field Artillery Officer', '2022-01-09', NULL, "O"),
-(5, 3, 'Nazar Zyma', 'Combat Engineer', '2022-01-09', NULL, "Debit Card"),
-(6, 3, 'Erast Vasylyk', 'Combat Engineer', '2022-01-09', NULL, "O Positive"),
-(7, 1, 'Pavlo Bondarenko', 'Field Artillery Officer', '2022-01-11', NULL, "O Positive"),
-(8, 4, 'Martyn Sokolov', 'Wheeled Vehicle Mechanic', '2022-01-14', NULL, "O Positive"),
-(9, 4, 'Valeriy Kovalchuk', 'Wheeled Vehicle Mechanic', '2022-01-14', NULL, "O"),
-(10, 5, 'Yevhen Chayka', 'Marksman Sniper', '2022-01-17', NULL, "O"),
-(11, 2, 'Tymofiy Baran', 'Soldeir', '2022-01-01', NULL, "A"),
-(12, 2, 'Stanislav Kravchenko', 'Soldeir', '2022-01-01', NULL, "O Positive"),
-(13, 5, 'Markiyan Holub', 'Marksman Sniper', '2022-01-01', NULL, "O Positive"),
-(14, 5, 'Heorhiy Shevchuk', 'Marksman Sniper', '2022-01-28', NULL, "O")
+(NULL, 1, 'Olexiy Havrylyuk', 'Field Artillery Officer', '2022-01-01', NULL, "A"),
+(NULL, 3, 'Oleksandr Sobol', 'Combat Engineer', '2022-01-01', NULL, "B"),
+(NULL, 3, 'Sofron Sokolov', 'Combat Engineer', '2022-01-05', NULL, "O Positive"),
+(NULL, 2, 'Valery Zelenko', 'Soldeir', '2022-01-07', NULL, "O"),
+(NULL, 1, 'Nil Borisov', 'Field Artillery Officer', '2022-01-09', NULL, "O"),
+(NULL, 3, 'Nazar Zyma', 'Combat Engineer', '2022-01-09', NULL, "Debit Card"),
+(NULL, 3, 'Erast Vasylyk', 'Combat Engineer', '2022-01-09', NULL, "O Positive"),
+(NULL, 1, 'Pavlo Bondarenko', 'Field Artillery Officer', '2022-01-11', NULL, "O Positive"),
+(NULL, 4, 'Martyn Sokolov', 'Wheeled Vehicle Mechanic', '2022-01-14', NULL, "O Positive"),
+(NULL, 4, 'Valeriy Kovalchuk', 'Wheeled Vehicle Mechanic', '2022-01-14', NULL, "O"),
+(NULL, 5, 'Yevhen Chayka', 'Marksman Sniper', '2022-01-17', NULL, "O"),
+(NULL, 2, 'Tymofiy Baran', 'Soldeir', '2022-01-01', NULL, "A"),
+(NULL, 2, 'Stanislav Kravchenko', 'Soldeir', '2022-01-01', NULL, "O Positive"),
+(NULL, 5, 'Markiyan Holub', 'Marksman Sniper', '2022-01-01', NULL, "O Positive"),
+(NULL, 5, 'Heorhiy Shevchuk', 'Marksman Sniper', '2022-01-28', NULL, "O")
 ;
 =======
 ALTER TABLE `recruits` AUTO_INCREMENT = 1000;
@@ -137,7 +155,28 @@ INSERT INTO `recruits` (`recruitID`, `recruitName`,`categoryID`, `job`, `dateOfR
 (NULL, 'Heorhiy Shevchuk', 5, 'Marksman Sniper', '2022-01-28', NULL, "O")
 ;
 
+<<<<<<< HEAD
 >>>>>>> 6d2f07a2c2213a69bcb0b4b30da0aff8fe69b442
+=======
+--
+-- Dumping data for table `records`
+--
+
+INSERT INTO `records` (`recordID`, `categoryID`, `name`, `price`, `image`) VALUES
+(1, 1, 'Some text', '12.00', '644471.jpg'),
+(2, 1, 'Some text', '15.00', '233012.jpg'),
+(3, 1, 'Some text', '18.00', '329484.jpg'),
+(4, 1, 'Some text', '10.00', '644055.jpg'),
+(5, 2, 'Some text', '16.00', '373465.jpg'),
+(6, 2, 'Some text', '19.00', '373989.jpg'),
+(7, 2, 'Some text', '12.00', '374104.jpg'),
+(8, 2, 'Some text', '10.00', '4733.jpg'),
+(9, 2, 'Some text', '15.00', '834551.jpg'),
+(10, 3, 'Some text', '13.00', '908783.jpg'),
+(11, 3, 'Some text', '17.00', '835545.jpg'),
+(12, 3, 'Some text', '19.00', '119273.jpg');
+
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
 --
 -- Indexes for dumped tables
 --
@@ -146,16 +185,26 @@ INSERT INTO `recruits` (`recruitID`, `recruitName`,`categoryID`, `job`, `dateOfR
 -- Indexes for table `categories`
 --
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`categoryID`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `recruits`
 --
 ALTER TABLE `recruits`
   ADD PRIMARY KEY (`recruitID`);
 >>>>>>> 6d2f07a2c2213a69bcb0b4b30da0aff8fe69b442
+=======
+-- Indexes for table `records`
+--
+ALTER TABLE `records`
+  ADD PRIMARY KEY (`recordID`);
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -168,6 +217,16 @@ ALTER TABLE `categories`
   MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+--
+-- AUTO_INCREMENT for table `records`
+--
+ALTER TABLE `records`
+  MODIFY `recordID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;
+
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -30,19 +30,16 @@ include('includes/header.php');
             <input type="input" name="name">
             <br>
 
+<<<<<<< HEAD
             <label>Job:</label>
 <<<<<<< HEAD
             <input type="input" name="job">
+=======
+            <label>List Price:</label>
+            <input type="input" name="price">
+>>>>>>> parent of 1234836 (several fixes to database creation, fixed add recruit and edit recruit form)
             <br>        
             
-            <label>Date of Registration:</label>
-            <input type="date" name="dateOfReg">
-            <br>       
-
-            <label>BloodType:</label>
-            <input type="input" name="bloodType">
-            <br> 
-
             <label>Image:</label>
 =======
             <input type="input" name="price">
