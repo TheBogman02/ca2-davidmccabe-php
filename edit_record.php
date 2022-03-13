@@ -1,7 +1,7 @@
 <?php
 
 // Get the recruit data
-$recruit_id = filter_input(INPUT_POST, 'recruit_id', FILTER_VALIDATE_INT);
+$recruit_id = filter_input(INPUT_POST, 'recruiId', FILTER_VALIDATE_INT);
 $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 $name = filter_input(INPUT_POST, 'recruitName');
 $job = filter_input(INPUT_POST, 'job');
@@ -54,18 +54,19 @@ require_once('database.php');
 
 $query = 'UPDATE recruits
 SET categoryID = :category_id,
-name = :name,
-price = :price,
-image = :image
+recruitName = :recruitName,
+job = :job,
+dateOfReg = :dateOfReg,
+image = :image,
+bloodType = : bloodType
 WHERE recruitID = :recruit_id';
 $statement = $db->prepare($query);
+$statement->bindValue(':recruit_id', $recruit_id);
 $statement->bindValue(':category_id', $category_id);
 $statement->bindValue(':recruitName', $name);
 $statement->bindValue(':job', $job);
 $statement->bindValue(':dateOfReg', $dateOfReg);
-$statement->bindValue(':job', $job);
 $statement->bindValue(':bloodType', $bloodType);
-$statement->bindValue(':recruit_id', $recruit_id);
 $statement->execute();
 $statement->closeCursor();
 

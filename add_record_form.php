@@ -30,10 +30,18 @@ include('includes/header.php');
             <input type="input" name="name">
             <br>
 
-            <label>List Price:</label>
-            <input type="input" name="price">
+            <label>Job:</label>
+            <input type="input" name="job">
             <br>        
             
+            <label>Date of Registration:</label>
+            <input type="date" name="dateOfReg">
+            <br>       
+
+            <label>BloodType:</label>
+            <input type="input" name="bloodType">
+            <br> 
+
             <label>Image:</label>
             <input type="file" name="image" accept="image/*" />
             <br>
